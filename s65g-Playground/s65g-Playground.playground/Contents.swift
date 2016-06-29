@@ -218,4 +218,121 @@ var secondCellIndex = CellIndex(height: 0, width: 0)
 // secondCellIndex.height = 1
 // secondCellIndex.width = 1
 
+/// Example of a class
+class Counter {
+    var count = 0
+    
+    /// Increment by one
+    func increment() -> Int {
+        count += 1
+        
+        return count
+    }
+    
+    /// Increment by an amount
+    func incrementBy(value : Int) -> Int {
+        count += value
+        
+        return count
+    }
+    
+    /// Increment with default values
+    func newIncrement(value : Int = 1) -> Int {
+        count += value
+        
+        return count
+    }
+}
+
+var counter = Counter()
+counter.increment()
+counter.incrementBy(4)
+
+counter.newIncrement()
+counter.newIncrement(4)
+
+let myNewInt = 6
+
+switch (myNewInt) {
+case 0:
+    fallthrough
+case 1:
+    print ("0 or 1")
+case 2...3:
+    print ("2 or 3")
+case 4,5:
+    print ("4 or 5")
+default:
+    print ("Bigger than 5")
+}
+
+class MyClass {
+    var fruit : Fruits
+    var level : Int
+    
+    static var highestLevel = 1
+    
+    init(myFruit: Fruits, myLevel : Int) {
+        fruit = myFruit
+        level = myLevel
+    }
+    
+    class func unlockedLevel() -> Int {
+        return highestLevel
+    }
+    
+    func incrementLevel(byAmount: Int = 1) -> Int {
+        level += byAmount
+        if (level > MyClass.highestLevel) {
+            MyClass.highestLevel = level
+        }
+        
+        return level
+    }
+}
+
+let myClass = MyClass(myFruit: .Apple, myLevel: 0)
+myClass.incrementLevel(5)
+MyClass.highestLevel
+
+let otherClass = MyClass(myFruit: .Banana, myLevel: 0)
+otherClass.incrementLevel(10)
+MyClass.highestLevel
+
+struct MyStructCounter {
+    static var highestLevel = 0
+    private var internalLevel = 0
+    
+    init (baseLevel: Int = 0) {
+        self.level = baseLevel
+    }
+    
+    var level : Int {
+        get {
+            return internalLevel
+        }
+        set(newValue) {
+            if (newValue > MyStructCounter.highestLevel) {
+                MyStructCounter.highestLevel = newValue
+            }
+            internalLevel = newValue
+        }
+    }
+    
+    var highestAchieved : Int {
+        return MyStructCounter.highestLevel
+    }
+}
+
+var msCounter = MyStructCounter()
+msCounter.level
+msCounter.level = 2
+msCounter.level
+msCounter.highestAchieved
+
+var msCounter2 = MyStructCounter(baseLevel: 5)
+msCounter.highestAchieved
+msCounter2.level += 1
+msCounter.highestAchieved
+
 
