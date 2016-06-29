@@ -159,3 +159,28 @@ var implicitOptionalInt : Int! = nil
 implicitOptionalInt = 3
 
 doubler(implicitOptionalInt)
+
+// ----- 6/29 -----
+
+let numLegs = ["Spider" : 8, "Ant" : 6, "Cat" : 4]
+var keys = [] as [String]
+
+for (animalName, legs) in numLegs {
+    if (animalName == "Cat") {
+        break
+    }
+    keys.append(animalName)
+}
+keys
+
+var keys2 = numLegs.map {(key, value) in return key}
+keys2
+
+for (var i = 0; i < 10; i++) {
+    i
+}
+
+for i in 0..<10 {
+    i
+}
+
