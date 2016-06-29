@@ -184,3 +184,38 @@ for i in 0..<10 {
     i
 }
 
+enum Fruits : String {
+    case Apple = "Apple"
+    case Banana
+    case Cherry
+    case Date
+}
+
+let fruitEnumArray = [Fruits.Apple, .Banana, .Cherry, .Date]
+
+for fruit in fruitEnumArray {
+    print (fruit.rawValue)
+}
+
+struct MutableCellIndex {
+    var height : Int
+    var width : Int
+}
+
+var origin = MutableCellIndex(height: 0, width: 0)
+origin.height = 1
+origin.width = 1
+
+let lockedOrigin = MutableCellIndex(height: 0, width: 0)
+// lockedOrigin.height = 7
+
+struct CellIndex {
+    let height : Int
+    let width : Int
+}
+
+var secondCellIndex = CellIndex(height: 0, width: 0)
+// secondCellIndex.height = 1
+// secondCellIndex.width = 1
+
+
